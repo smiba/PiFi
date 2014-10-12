@@ -87,12 +87,12 @@ sudo iptables --append FORWARD --in-interface wlan0 -j ACCEPT
 # Restart the services
 #
 
-#echo "\n||| RESTARTING DHCP |||\n"
+#printf "\n||| RESTARTING DHCP |||\n"
 #service dnsmasq restart
-echo "\n||| RESTARTING WIFI |||\n"
+printf "\n||| RESTARTING WIFI |||\n"
 killall hostapd
 ifdown wlan0 #Should have happend already, but just to be on the safe side
 /usr/local/bin/hostapd -B /etc/hostapd/hostapd.conf
-echo "\n||| RESTARTING OS |||\n** Connectable after reboot\n**SSID: raspberry\n**Password: 12345678"
+printf "\n||| RESTARTING OS |||\n** Connectable after reboot\n**SSID: raspberry\n**Password: 12345678"
 sleep 5
 reboot
